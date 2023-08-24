@@ -33,14 +33,7 @@
         </div>
     </div>
 </div>
-<table class="table">
-    <thead>
-        <tr>
-            <th>{{__('auth.name')}}</th>
-            <th>{{__('auth.email')}}</th>
-            <th>{{__('auth.created_at')}}</th>
-        </tr>
-    </thead>
+
  
 </table>
 
