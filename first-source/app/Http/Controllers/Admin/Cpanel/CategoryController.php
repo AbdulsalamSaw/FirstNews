@@ -16,6 +16,13 @@ class CategoryController extends Controller
         return view('admin.categories.index', compact('categories'));
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $categories = Category::where('name', 'like', "%$search%")->take(50)->get();
+
+        return response()->json($categories);
+    }
     public function create()
     {
         return view('admin.categories.create');

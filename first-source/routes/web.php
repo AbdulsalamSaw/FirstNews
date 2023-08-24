@@ -17,6 +17,7 @@ Route::group(['middleware' => 'checkrole:admin'], function () {
     Route::get('/categories/create',[CategoryController::class,'create'])->name('create');    
     Route::get('/categories/show',[CategoryController::class,'index'])->name('index');    
     Route::get('/categories/edit',[CategoryController::class,'edit'])->name('edit');    
+    Route::get('/categories/search', 'CategoryController@search')->name('categories.search');
 
 
 });

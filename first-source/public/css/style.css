@@ -21,3 +21,9 @@
   direction: ltr;
   text-align: left;
 }
+
+
+.btn-equal-size {
+  width: 100px; /* يمكنك تعديل القيمة حسب احتياجاتك */
+  height: 36px; /* يمكنك تعديل القيمة حسب احتياجاتك */
+}

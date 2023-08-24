@@ -18,7 +18,7 @@
     </head>
     <body  >
         <nav class="navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand ps-3">{{__('messages.cpanel')}}</a>
+            <a class="navbar-brand ps-3">{{__('cpanel.cpanel')}}</a>
             <ul class="navbar-nav ms-auto me-3 me-lg-4">
               <li class="nav-item dropdown {{ app()->getLocale() == 'ar' ? 'float-right' : 'float-left' }}">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -41,7 +41,7 @@
                     <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                        {{ __('cpanel.logout') }}
                     </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -58,25 +58,22 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div  class="sb-sidenav-menu-heading"><a class="nav-link " href="/home"> {{__('messages.cpanel')}}</a>
+                            <div  class="sb-sidenav-menu-heading"><a class="nav-link " href="/home"> {{__('cpanel.dashboard')}}</a>
                             </div>
-                            <div class="sb-sidenav-menu-heading">{{__('messages.story')}}
+                            <div class="sb-sidenav-menu-heading">{{__('categories.categories')}}
                                 <div class="sb-nav-link-icon">
-                                    <a class="nav-link "href="">{{__('messages.liststory')}}
+                                    <a class="nav-link "href="/categories/create">{{__('categories.addNewCategory')}}
                                     </a>
                                 </div>
-                              
-                            </div>
-                            <div class="sb-sidenav-menu-heading">{{__('messages.user')}}
                                 <div class="sb-nav-link-icon">
-                                    <a class="nav-link " href="/users">{{__('messages.user')}} 
+                                    <a class="nav-link "href="/categories">{{__('categories.viewCategories')}}
                                     </a>
                                 </div>
-                        </div>
+                            </div>
                     </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">{{__('messages.logged')}}</div>
+                        <div class="small">{{__('cpanel.logged')}}</div>
                         {{ Auth::user()->name }}                     </div>
                 </nav>
             </div>
