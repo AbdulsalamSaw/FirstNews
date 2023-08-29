@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Cpanel;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Log;
+use App\Models\Category;
 
 use Illuminate\Http\Request;
 
@@ -12,48 +13,61 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
-        return view('articles.index', compact('articles'));
+        return view('admin.articles.index', compact('articles'));
     }
 
     public function create()
     {
-        return view('articles.create');
+        $categories = Category::all();
+        return view('admin.articles.create', compact('categories'));
     }
 
-    public function store(Request $request)
-    {
-        try {
-            $article = new Article([
-                'title' => $request->input('title'),
-                'content' => $request->input('content'),
-                'user_id' => auth()->user()->id
-            ]);
-            
-            $article->save();
-            
-            // إضافة القسم إلى المقال
-            $category = Category::findOrFail($request->input('category_id'));
-            $article->categories()->attach($category);
-    
-            return redirect()->route('articles.index')->with('success', 'Article created successfully.');
-        } catch (\Exception $e) {
-            Log::error($e);
-            return redirect()->back()->with('error', 'An error occurred while creating the article.');
+   
+        public function store(Request $request)
+        {
+            try {
+                $article = new Article([
+                    'title' => $request->input('title'),
+                    'content' => str_replace("\n", " ", $request->input('content')), 
+                    'user_id' => auth()->user()->id,
+                    'categorie_id' => $request->input('categorie_id'),
+                ]);
+        
+                // Upload Image
+                if ($request->hasFile('image')) {
+                    $imagePath = $request->file('image')->store('articles', 'public');
+                    $article->image = $imagePath;
+                }
+        
+                // Upload Video
+                if ($request->hasFile('video')) {
+                    $videoPath = $request->file('video')->store('videos', 'public');
+                    $article->video = $videoPath;
+                }
+        
+                $article->save();
+        
+                return redirect()->route('articles.index')->with('success', 'Article created successfully.');
+            } catch (\Exception $e) {
+                Log::error($e);
+                return redirect()->back()->with('error', 'An error occurred while creating the article.');
+            }
         }
-    }
+        
     
     public function show($id)
     {
         $article = Article::findOrFail($id);
-        return view('articles.show', compact('article'));
+        return view('admin.articles.show', compact('article'));
     }
 
     public function edit($id)
     {
         $article = Article::findOrFail($id);
-        return view('articles.edit', compact('article'));
+        $categories = Category::all(); 
+        return view('admin.articles.edit', compact('article', 'categories'));
     }
-
+    
     public function update(Request $request, $id)
     {
         try {

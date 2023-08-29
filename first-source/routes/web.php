@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Cpanel\HomePageController;
 use App\Http\Controllers\Admin\Cpanel\UserController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\Admin\Cpanel\CategoryController;
+use App\Http\Controllers\Admin\Cpanel\ArticleController;
 
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => '\App\Http\Controllers\LanguagesController@switchLang']);
 
@@ -18,6 +19,7 @@ Route::group(['middleware' => 'checkrole:admin'], function () {
     Route::get('/categories/show',[CategoryController::class,'index'])->name('index');    
     Route::get('/categories/edit',[CategoryController::class,'edit'])->name('edit');    
     Route::get('/categories/search', 'CategoryController@search')->name('categories.search');
+    Route::resource('articles', ArticleController::class);
 
 
 });

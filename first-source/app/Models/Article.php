@@ -10,7 +10,7 @@ use App\Models\Category;
 class Article extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'content', 'user_id'];
+    protected $fillable = ['title', 'content', 'user_id', 'categorie_id', 'image', 'video'];
 
     public function user()
     {

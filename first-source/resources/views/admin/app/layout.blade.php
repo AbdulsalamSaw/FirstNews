@@ -58,24 +58,35 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div  class="sb-sidenav-menu-heading"><a class="nav-link " href="/home"> {{__('cpanel.dashboard')}}</a>
+                            <div class="sb-sidenav-menu-heading">
+                                <a class="nav-link" href="/home">{{__('cpanel.dashboard')}}</a>
                             </div>
-                            <div class="sb-sidenav-menu-heading">{{__('categories.categories')}}
+                            <div class="sb-sidenav-menu-heading">
+                                {{__('categories.categories')}}
                                 <div class="sb-nav-link-icon">
-                                    <a class="nav-link "href="/categories/create">{{__('categories.addNewCategory')}}
-                                    </a>
+                                    <a class="nav-link" href="/categories/create">{{__('categories.addNewCategory')}}</a>
                                 </div>
                                 <div class="sb-nav-link-icon">
-                                    <a class="nav-link "href="/categories">{{__('categories.viewCategories')}}
-                                    </a>
+                                    <a class="nav-link" href="/categories">{{__('categories.viewCategories')}}</a>
                                 </div>
                             </div>
-                    </div>
+                            <div class="sb-sidenav-menu-heading">
+                                {{__('articles.articles')}}
+                                <div class="sb-nav-link-icon">
+                                    <a class="nav-link" href="/articles/create">{{__('articles.addNewArticle')}}</a>
+                                </div>
+                                <div class="sb-nav-link-icon">
+                                    <a class="nav-link" href="/articles">{{__('articles.viewArticles')}}</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">{{__('cpanel.logged')}}</div>
-                        {{ Auth::user()->name }}                     </div>
+                        {{ Auth::user()->name }}
+                    </div>
                 </nav>
+                
             </div>
             <div id="layoutSidenav_content">
                 <main>
