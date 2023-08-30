@@ -15,6 +15,8 @@ return [
     'categoryCreated' => 'تم إنشاء الفئة بنجاح!', 
     'categoryUpdated' => 'تم تحديث الفئة بنجاح!', 
     'searchCategory' => 'البحث عن فئة',
-
+    'categoryDescription' => 'وصف القسم',
+    'categoryImage' => 'صورة القسم',
+    
 ];
 

@@ -16,9 +16,13 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('categorie_id');
+            $table->string('image')->nullable(); 
+            $table->string('video')->nullable(); 
             $table->timestamps();
-
+    
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('categorie_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

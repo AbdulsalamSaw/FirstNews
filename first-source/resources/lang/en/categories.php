@@ -14,6 +14,8 @@ return [
     'noCategoriesFound' => 'No categories found.', 
     'categoryCreated' => 'Category created successfully!', 
     'categoryUpdated' => 'Category updated successfully!', 
-    
+    'categoryDescription' => 'Category Description',
+    'categoryImage' => 'Category Image',
+
 ];
 

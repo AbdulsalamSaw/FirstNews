@@ -143,7 +143,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function () {
-    const intervalDuration = 10000; 
+    const intervalDuration = 20000; 
 
     function moveNext() {
         const activeArticle = $('.carousel-inner .carousel-item.active');
@@ -152,9 +152,9 @@ $(document).ready(function () {
         if (nextArticle.length === 0) {
             $('.carousel-item').first().addClass('active');
         } else {
-            activeArticle.animate({ left: '-100%' }, 500, function() {
+            activeArticle.animate({ left: '-100%' }, 1000, function() {
                 activeArticle.removeClass('active');
-                nextArticle.addClass('active').css('left', '100%').animate({ left: 0 }, 500);
+                nextArticle.addClass('active').css('left', '100%').animate({ left: 0 }, 1000);
             });
         }
     }
