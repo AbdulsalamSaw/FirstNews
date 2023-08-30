@@ -13,7 +13,7 @@
             <label for="content" class="form-label">محتوى المقال:</label>
             <div class="d-flex align-items-center mb-2">
                 <div class="flex-grow-1">
-                    <textarea name="content" id="content" class="form-control" required></textarea>
+                    <textarea name="content" id="editor" class="form-control" ></textarea>
                 </div>
                 <div class="ms-2">
                     <i class="bi bi-font-size"></i>
@@ -38,8 +38,6 @@
         <button type="submit" class="btn btn-primary">إنشاء المقال</button>
     </form>
 </div>
+
 @endsection
 
-@push('scripts')
-<script src="{{ asset('public/tinymce/tinymce.init.js') }}"></script>
-@endpush

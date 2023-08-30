@@ -98,8 +98,13 @@
                     <div class="image-container" style="background-image: url('<?php echo $news->image; ?>');">
                         <div class="news-overlay">
                             <h2><?php echo $news->title; ?></h2>
-                            <p class="news-description"><?php echo $news->content; ?>...</p>
-                            
+                            <p class="news-description">
+                                <?php
+                                $trimmedContent = mb_substr($news->content, 0, 300);
+                                echo $trimmedContent . (mb_strlen($news->content) > 300 ? "..." : "");
+                                ?>
+                            </p>
+                                                        
                         </div>
                     </div>
                 </article>

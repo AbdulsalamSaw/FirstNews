@@ -28,11 +28,10 @@ class ArticleController extends Controller
             try {
                 $article = new Article([
                     'title' => $request->input('title'),
-                    'content' => str_replace("\n", " ", $request->input('content')), 
                     'user_id' => auth()->user()->id,
                     'categorie_id' => $request->input('categorie_id'),
                 ]);
-        
+                $article->content = $request->input('content');
                 // Upload Image
                 if ($request->hasFile('image')) {
                     $imagePath = $request->file('image')->store('articles', 'public');

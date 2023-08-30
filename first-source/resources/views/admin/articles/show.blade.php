@@ -15,7 +15,7 @@
                             <iframe class="embed-responsive-item" src="{{ $article->video }}" allowfullscreen></iframe>
                         </div>
                     @endif
-                    <p class="mt-3">{{ $article->content }}</p>
+                    <div id="articleContent" class="mt-3">{!! $article->content !!}</div>
                 </div>
             </div>
         </div>
@@ -29,4 +29,14 @@
         </div>
     </div>
 </div>
+
 @endsection
+<script>
+    ClassicEditor
+        .create(document.querySelector('#articleContent'), {
+            readOnly: true, 
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>

@@ -20,7 +20,7 @@
                     </div>
                     <div class="form-group">
                         <label for="content">{{ __('Content') }}</label>
-                        <textarea id="content" class="form-control @error('content') is-invalid @enderror" name="content" required>{{ old('content', $article->content) }}</textarea>
+                        <textarea id="editor" class="form-control @error('content') is-invalid @enderror" name="content">{{ old('content', $article->content) }}</textarea>
                         @error('content')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
