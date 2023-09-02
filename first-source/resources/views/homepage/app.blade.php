@@ -50,20 +50,13 @@
                     <ul>
                         @foreach ($categories as $category)
                             <li>
-                                <a href="#">{{ $category->name }}</a>
-                                @if ($category->articles->count() > 0)
-                                    <ul>
-                                        @foreach ($category->articles as $article)
-                                            <li><a href="#">{{ $article->title }}</a></li>
-                                        @endforeach
-                                    </ul>
-                                @endif
+                                <a href="{{ route('category.show', $category->id) }}">{{ $category->name }}</a>
                             </li>
                         @endforeach
-                       
+
                     </ul>
                 </li>
-        
+
                 <li class="dropdown">
                     <a href="#"><span> {{ __('news.latestNews') }}</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
@@ -87,7 +80,7 @@
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
-        
+
         </div>
       </header><!-- End Header -->
       <section id="hero">
@@ -104,7 +97,7 @@
                                 echo $trimmedContent . (mb_strlen($news->content) > 300 ? "..." : "");
                                 ?>
                             </p>
-                                                        
+
                         </div>
                     </div>
                 </article>
@@ -118,7 +111,7 @@
             </a>
         </section>
     </section>
-      
+
 
     <div id="app">
         <main class="py-4">
@@ -143,7 +136,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function () {
-    const intervalDuration = 20000; 
+    const intervalDuration = 20000;
 
     function moveNext() {
         const activeArticle = $('.carousel-inner .carousel-item.active');

@@ -11,11 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-       //update schema 
+      //update schema
         //Schema::table('categories', function (Blueprint $table) {
        // $table->text('description');
-       // $table->string('image')->nullable(); 
+       // $table->string('image')->nullable();
        // });
+
+       Schema::table('articles', function (Blueprint $table) {
+        $table->unsignedBigInteger('category_id');
+        $table->foreign('category_id')->references('id')->on('categories');
+    });
+
     }
 
     /**
