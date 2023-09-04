@@ -6,5 +6,6 @@ return [
     'articles' => 'Articles',
     'addNewArticle' => 'Add New Article',
     'viewArticles' => 'View Articles',
+    'relatedNews'=>'Related News',
 ];
 

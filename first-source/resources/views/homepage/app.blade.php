@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,13 +44,13 @@
           <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt=""></a>
           <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-                <li><a class="nav-link scrollto " href="#hero"> {{ __('home.home') }}</a></li>
+                <li><a class="nav-link scrollto " href="#"> {{ __('home.home') }}</a></li>
                 <li class="dropdown">
                     <a href="#"><span> {{ __('categories.categories') }}</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         @foreach ($categories as $category)
                             <li>
-                                <a href="{{ route('category.show', $category->id) }}">{{ $category->name }}</a>
+                                <a href="">{{ $category->name }}</a>
                             </li>
                         @endforeach
 
@@ -61,7 +61,10 @@
                     <a href="#"><span> {{ __('news.latestNews') }}</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         @foreach ($latestArticles as $article)
-                            <li><a href="#">{{ $article->title }}</a></li>
+                            <li>
+                                <a href="{{ route('singleNew.show', $article->id) }}">{{ $article->title }}</a>
+
+                            </li>
                         @endforeach
                     </ul>
                 </li>
@@ -190,5 +193,7 @@ $(document).ready(function () {
 
 
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
 </body>
 </html>

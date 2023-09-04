@@ -2,21 +2,22 @@
 
 return [
     'categoryName' => 'اسم الفئة',
-    'createCategory' => 'إنشاء فئة',
-    'category' => 'فئة',
-    'categories' => 'الفئات', 
+    'category' => 'الفئة',
+    'categories' => 'الفئات',
     'addNewCategory' => 'إضافة فئة جديدة',
-    'editCategory' => 'تعديل الفئة', 
-    'viewCategories' => 'عرض الفئات', 
-    'categoryDetails' => 'تفاصيل الفئة', 
-    'saveCategory' => 'حفظ الفئة', 
-    'updateCategory' => 'تحديث الفئة', 
-    'noCategoriesFound' => 'لم يتم العثور على فئات.', 
-    'categoryCreated' => 'تم إنشاء الفئة بنجاح!', 
-    'categoryUpdated' => 'تم تحديث الفئة بنجاح!', 
-    'searchCategory' => 'البحث عن فئة',
-    'categoryDescription' => 'وصف القسم',
-    'categoryImage' => 'صورة القسم',
-    
+    'editCategory' => 'تحرير الفئة',
+    'viewCategories' => 'عرض الفئات',
+    'categoryDetails' => 'تفاصيل الفئة',
+    'saveCategory' => 'حفظ الفئة',
+    'searchCategory' => 'بحث عن الفئة',
+    'updateCategory' => 'تحديث الفئة',
+    'noCategoriesFound' => 'لم يتم العثور على أي فئات.',
+    'categoryCreated' => 'تم إنشاء الفئة بنجاح!',
+    'categoryUpdated' => 'تم تحديث الفئة بنجاح!',
+    'categoryDescription' => 'وصف الفئة',
+    'categoryImage' => 'صورة الفئة',
+    'inThisCategory' => 'في هذه القسم', // إضافة هذه العبارة
+    'newsCategory' => ' الأخبار', // إضافة هذه العبارة
 ];
+
 

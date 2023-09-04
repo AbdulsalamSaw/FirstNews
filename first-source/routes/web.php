@@ -32,4 +32,4 @@ Route::get('/',[IndexController::class,'viewPage'])->name('home');
 
 
 
-Route::get('category/{id}',[IndexController::class,'viewCategories'])->name('category.show');
+Route::get('s/{id}',[IndexController::class,'viewSingleNew'])->name('singleNew.show');

@@ -37,17 +37,29 @@ class IndexController extends Controller
         }
     }
 
-    public function viewCategories($id)
+    public function viewSingleNew($id)
     {
         try {
             $direction = (App::getLocale() == 'ar') ? 'rtl' : 'ltr';
 
-            $articles = Article::where('category_id',$id)
+            $thisNews = Article::where('id',$id)->get();
+            $title= $thisNews[0]->title;
+            $category_id=$thisNews[0]->category_id;
+
+            $articles = Article::where('category_id',$category_id)
                 ->latest()
-                ->take(10)
+                ->take(5)
                 ->get();
 
-            return view('homepage.categories.index', compact('direction', 'articles'));
+            $relatedNews = Article::where('category_id',$category_id)->take(6)
+            ->get();
+
+            $newCategory = Category::latest()
+                ->take(5)
+                ->get();
+
+
+            return view('homepage.categories.singleNews', compact('direction', 'title','articles','newCategory','relatedNews','thisNews'));
         } catch (\Exception $e) {
             Log::error('An error occurred in viewCategories: ' . $e->getMessage());
 
