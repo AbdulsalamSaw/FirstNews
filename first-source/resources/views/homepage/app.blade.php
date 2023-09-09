@@ -44,7 +44,7 @@
                     <ul>
                         @foreach ($categories as $category)
                             <li>
-                                <a href="">{{ $category->name }}</a>
+                                <a href="{{ route('singleCategory.show', $category->id) }}">{{ $category->name }}</a>
                             </li>
                         @endforeach
 
@@ -57,7 +57,6 @@
                         @foreach ($latestArticles as $article)
                             <li>
                                 <a href="{{ route('singleNew.show', $article->id) }}">{{ $article->title }}</a>
-
                             </li>
                         @endforeach
                     </ul>
@@ -111,7 +110,7 @@
         <section id="categories" class="categories-section section-bg">
             <div class="section-title">
                 <h2>{{ __('categories.categories') }}</h2>
-                <p>الاقسام المتوفرة داخل الموقع بحيث يتم عرض جميع الاقسام هنا ويمكنك الضغط عليه لعرض اخر الاخبار الموجودة داخل القسم </p>
+                <p>{{ __('categories.websiteCategories') }}</p>
             </div>
             <div class="row">
                 @foreach ($categories as $category)
@@ -136,8 +135,10 @@
 
     <div class="container">
         <section id="new" class="new-section section-bg">
-            <div class="new-title">
-                <h2>آخر الموضوعات التي تمت إضافتها</h2>
+            <div class="section-title">
+                <h2>{{ __('articles.articles') }}</h2>
+
+                <p>{{ __('articles.welcomeToLatestTopics') }}</p>
             </div>
             <div class="row">
                 @foreach ($latestArticles as $article)
@@ -170,7 +171,7 @@
                 &copy; SSCode <strong><span>First Source</span></strong>. All Rights Reserved
             </div>
             <div class="credits">
-                Designed by <a href="https://www.facebook.com/SALAM1248">Abdulsalam Sawalha</a>
+                Development by <a href="https://www.facebook.com/SALAM1248">Abdulsalam Sawalha</a>
             </div>
         </div>
     </div>
@@ -179,56 +180,41 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
-    // تأكد من أن المرتبة الأولى (الأولى) تكون فعّالة عند تحميل الصفحة
     $('.carousel-inner .carousel-item:first').addClass('active');
 
-    // التحكم في السلايدر باستخدام الأزرار
     $('.carousel-control-prev').click(function() {
-        // العنصر الحالي
         var currentSlide = $('.carousel-inner .carousel-item.active');
 
-        // التحقق مما إذا كان العنصر الحالي هو الأول
         if (currentSlide.is(':first-child')) {
-            // إذا كان العنصر الحالي هو الأول، قم بإعادة تعيين السلايدر إلى العنصر الأخير
             $('.carousel-inner .carousel-item:last').addClass('active');
         } else {
-            // إلا إذا لم يكن العنصر الحالي هو الأول، قم بالانتقال إلى العنصر السابق
             currentSlide.prev().addClass('active');
         }
-        // قم بإزالة الفئة "active" من العنصر الحالي
         currentSlide.removeClass('active');
     });
 
     $('.carousel-control-next').click(function() {
-        // العنصر الحالي
         var currentSlide = $('.carousel-inner .carousel-item.active');
 
-        // التحقق مما إذا كان العنصر الحالي هو الأخير
         if (currentSlide.is(':last-child')) {
-            // إذا كان العنصر الحالي هو الأخير، قم بإعادة تعيين السلايدر إلى العنصر الأول
             $('.carousel-inner .carousel-item:first').addClass('active');
         } else {
-            // إلا إذا لم يكن العنصر الحالي هو الأخير، قم بالانتقال إلى العنصر التالي
             currentSlide.next().addClass('active');
         }
-        // قم بإزالة الفئة "active" من العنصر الحالي
         currentSlide.removeClass('active');
     });
 
-    // تغيير السلايد تلقائياً كل 30 ثانية
     setInterval(function() {
         var currentSlide = $('.carousel-inner .carousel-item.active');
         var nextSlide = currentSlide.next();
 
-        // التحقق مما إذا كان العنصر الحالي هو الأخير
         if (currentSlide.is(':last-child')) {
-            // إذا كان العنصر الحالي هو الأخير، قم بإعادة تعيين السلايدر إلى العنصر الأول
             nextSlide = $('.carousel-inner .carousel-item:first');
         }
 
         currentSlide.removeClass('active');
         nextSlide.addClass('active');
-    }, 30000); // 30 ثانية
+    }, 30000);
 });
 
 

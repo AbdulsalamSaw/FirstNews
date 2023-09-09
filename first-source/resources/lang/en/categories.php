@@ -19,5 +19,7 @@ return [
     'inThisCategory' => 'In This Category',
     'newsCategory' => 'News Category',
 
+    'websiteCategories'=>'The available categories on the website, where you can find all the available sections, and click on them to view the latest news within that category.'
+
 ];
 

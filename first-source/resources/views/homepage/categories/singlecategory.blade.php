@@ -108,7 +108,7 @@
                     &copy; SSCode <strong><span>First Source</span></strong>. All Rights Reserved
                 </div>
                 <div class="credits">
-                    Designed by <a href="https://www.facebook.com/SALAM1248">Abdulsalam Sawalha</a>
+                    Development by <a href="https://www.facebook.com/SALAM1248">Abdulsalam Sawalha</a>
                 </div>
             </div>
         </div>

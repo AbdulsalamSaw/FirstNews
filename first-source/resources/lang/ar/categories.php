@@ -16,8 +16,10 @@ return [
     'categoryUpdated' => 'تم تحديث الفئة بنجاح!',
     'categoryDescription' => 'وصف الفئة',
     'categoryImage' => 'صورة الفئة',
-    'inThisCategory' => 'في هذه القسم', // إضافة هذه العبارة
-    'newsCategory' => ' الأخبار', // إضافة هذه العبارة
+    'inThisCategory' => 'في هذه القسم',
+    'newsCategory' => 'فئة الأخبار',
+    'websiteCategories'=>'الأقسام المتاحة على الموقع، حيث يمكنك العثور على جميع الأقسام المتاحة والنقر عليها لعرض أحدث الأخبار داخل تلك الفئة.'
+
 ];
 
 
