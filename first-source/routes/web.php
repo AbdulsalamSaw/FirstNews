@@ -33,3 +33,4 @@ Route::get('/',[IndexController::class,'viewPage'])->name('home');
 
 
 Route::get('s/{id}',[IndexController::class,'viewSingleNew'])->name('singleNew.show');
+Route::get('c/{id}',[IndexController::class,'viewCategory'])->name('singleCategory.show');

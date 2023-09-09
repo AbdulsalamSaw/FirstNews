@@ -70,7 +70,33 @@ class IndexController extends Controller
         }
     }
 
+    public function viewCategory($id)
+    {
+        try {
+            $direction = (App::getLocale() == 'ar') ? 'rtl' : 'ltr';
 
+            $articles = Article::where('category_id',$id)
+                ->latest()
+                ->take(20)
+                ->get();
+
+            $relatedNews = Article::where('category_id',$id)->take(6)
+            ->get();
+
+            $newCategory = Category::latest()
+                ->take(5)
+                ->get();
+
+            return view('homepage.categories.singlecategory', compact('direction', 'articles','newCategory','relatedNews'));
+        } catch (\Exception $e) {
+            Log::error('An error occurred in viewCategories: ' . $e->getMessage());
+
+            //return redirect()->back()->with('error', 'An error occurred while fetching the category.');
+            abort(404);
+
+
+        }
+    }
 
 
 }

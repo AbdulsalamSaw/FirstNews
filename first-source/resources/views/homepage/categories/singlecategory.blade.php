@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{$title}}</title>
+    <title>"f"</title>
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -32,17 +32,6 @@
                     </ul>
                 </li>
 
-                <li class="dropdown">
-                    <a href="#"><span> {{ __('news.latestNews') }}</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        @foreach ($articles as $article)
-                            <li>
-                                <a href="{{ route('singleNew.show', $article->id) }}">{{ $article->title }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </li>
-
                 <li class="dropdown {{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       {{ Config::get('languages')[App::getLocale()] }}
@@ -67,27 +56,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="sn-container">
-                        @foreach ($thisNews as $news)
-                        <div class="sn-img">
-                            <img src="{{$news->image}}" />
-                        </div>
-                        <div class="sn-content">
-                            <h1 class="sn-title">{{$news->title}}</h1>
-                           <p>
-                            {!! $news->content !!}
-                           </p>
-                        </div>
-                        @endforeach
-                    </div>
                     <div class="sn-related">
                         <h2>{{ __('articles.relatedNews') }}</h2>
                         <div class="row sn-slider">
                             @foreach ($relatedNews as $related)
-                            <div class="col-md-4">
+                            <div  class="col-md-9" style="margin: 5px;">
                                 <div class="sn-img">
-                                    <img src="{{$related->image}}" />
-                                    <div class="sn-title">
+                                    <div class="category-img">
+                                        <img src="{{$related->image}}" class="img-fluid" alt="" style="max-height: 250px; /* تعديل الحجم الأقصى هنا */">
+                                    </div>
+                                <div class="sn-title">
                                         <a href="{{ route('singleNew.show', $related->id) }}">{{$related->title}}</a>
                                     </div>
                                 </div>
@@ -99,27 +77,6 @@
 
                 <div class="col-lg-4">
                     <div class="sidebar">
-                        <div class="sidebar-widget">
-                            <h2 class="sw-title">{{ __('categories.inThisCategory') }}</h2>
-                            <div class="news-list">
-                                @foreach ($articles as $article)
-                                <div class="nl-item">
-                                    <div class="nl-img">
-                                        <img src="{{$article->image}}"  />
-                                    </div>
-                                    <div class="nl-title">
-                                        <a href="{{ route('singleNew.show', $article->id) }}">{{$article->title}}</a>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-
-                        <div class="sidebar-widget">
-                            <div class="image">
-                                <a href=""><img src="/assets/img/ads-2.jpg" alt="Image"></a>
-                            </div>
-                        </div>
 
                         <div class="sidebar-widget">
                             <h2 class="sw-title">{{ __('categories.newsCategory') }}</h2>

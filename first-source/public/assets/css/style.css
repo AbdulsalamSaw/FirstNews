@@ -141,8 +141,7 @@ h6 {
   background: #fff;
   transition: all 0.5s;
   z-index: 997;
-  padding: 20px 0;
-  top: 40px;
+  padding: 10px;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -170,7 +169,7 @@ h6 {
 }
 
 #header .logo img {
-  max-height: 70px;
+  max-height: 65px;
 }
 
 
@@ -618,12 +617,19 @@ h6 {
   line-height: 1.2;
 }
 
-.news-description {
+.news-overlay {
   margin-top: 0.5rem;
   text-align: center;
-  color: white;
   font-size: 1rem;
   line-height: 1.5;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  opacity: 1;
+  transition: opacity 0.3s;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .news-overlay a {

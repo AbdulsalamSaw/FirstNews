@@ -32,13 +32,7 @@
     <link href={{ asset('assets/css/style.css') }} rel="stylesheet">
 </head>
 <body>
-    <div id="topbar" class="d-flex align-items-center fixed-top">
-        <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
-            <div class="align-items-center d-none d-md-flex">
-                <i class="bi bi-clock"></i> {{ now()->format('l - F j, Y, h:i A') }}
-            </div>
-        </div>
-    </div>
+
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
           <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt=""></a>
@@ -89,22 +83,17 @@
       <section id="hero">
         <section class="top-news carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <?php foreach ($latestNews as $index => $news): ?>
-                <article class="news-article carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
-                    <div class="image-container" style="background-image: url('<?php echo $news->image; ?>');">
-                        <div class="news-overlay">
-                            <h2><?php echo $news->title; ?></h2>
-                            <p class="news-description">
-                                <?php
-                                $trimmedContent = mb_substr($news->content, 0, 300);
-                                echo $trimmedContent . (mb_strlen($news->content) > 300 ? "..." : "");
-                                ?>
-                            </p>
-
+                @foreach ($latestNews as $news)
+                <article class="news-article carousel-item">
+                    <a href="{{ route('singleNew.show', $news->id) }}">
+                        <div class="image-container" style="background-image: url('{{$news->image}}');">
+                            <div class="news-overlay">
+                                <h2>{{ $news->title }}</h2>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </article>
-                <?php endforeach; ?>
+                @endforeach
             </div>
             <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -114,60 +103,59 @@
             </a>
         </section>
     </section>
+
     <br>
     <br>
 
     <div class="container">
-    <section id="categories" class="categories-section section-bg">
-          <div class="section-title">
-            <h2>{{ __('categories.categories') }}</h2>
-            <p>الاقسام المتوفر داخل الموقع بحيث يتم عرض جميع الاقسام هنا ويمكنك الضغط عليه لعرض اخر الاخبار الموجودة داخل القسم </p>
-        </div>
-        <div class="row">
-          @foreach ($categories as $category)
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="category-item" data-aos-delay="100">
-              <div class="category-img">
-                <img src="{{$category->image}}" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="category-info">
-                <h4>{{$category->name}}</h4>
-                <span>{{$category->description}}</span>
-              </div>
+        <section id="categories" class="categories-section section-bg">
+            <div class="section-title">
+                <h2>{{ __('categories.categories') }}</h2>
+                <p>الاقسام المتوفرة داخل الموقع بحيث يتم عرض جميع الاقسام هنا ويمكنك الضغط عليه لعرض اخر الاخبار الموجودة داخل القسم </p>
             </div>
-          </div>
-          @endforeach
-        </div>
-      </section>
+            <div class="row">
+                @foreach ($categories as $category)
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                    <div class="category-item" data-aos-delay="100">
+                        <a href="{{ route('singleCategory.show', $category->id) }}">
+                            <div class="category-img">
+                                <img src="{{$category->image}}" class="img-fluid" alt="">
+                            </div>
+                            <div class="category-info">
+                                <h4>{{$category->name}}</h4>
+                                <span>{{$category->description}}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </section>
     </div>
+
 
     <div class="container">
         <section id="new" class="new-section section-bg">
             <div class="new-title">
                 <h2>آخر الموضوعات التي تمت إضافتها</h2>
-                <p></p>
             </div>
             <div class="row">
                 @foreach ($latestArticles as $article)
-                <div class="col-lg-2 col-md-6 d-flex align-items-stretch">
-                    <div class="new-item" data-aos-delay="100">
-                        <div class="new-img">
-                            <img src="{{$article->image}}" class="img-fluid" alt="">
-                        </div>
-                        <div class="new-info">
-                            <h4>
-                                 <a href="{{ route('singleNew.show', $article->id) }}">{{ $article->title }}</a>
-                            </h4>
-                            <span>{{$article->description}}</span>
+                    <div class="col-lg-4">
+                        <div class="new-item" data-aos-delay="100">
+                            <a href="{{ route('singleNew.show', $article->id) }}">
+                            <div class="new-img">
+                                <img src="{{$article->image}}" class="img-fluid" alt="">
+                            </div>
+                            <div class="new-info">
+                                <h4>
+                                    {{ $article->title }}
+                                </h4>
+                                <span>{{$article->description}}</span>
+                            </div>
+                        </a>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </section>
@@ -190,57 +178,57 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-$(document).ready(function () {
-    const intervalDuration = 20000;
+$(document).ready(function() {
+    // تأكد من أن المرتبة الأولى (الأولى) تكون فعّالة عند تحميل الصفحة
+    $('.carousel-inner .carousel-item:first').addClass('active');
 
-    function moveNext() {
-        const activeArticle = $('.carousel-inner .carousel-item.active');
-        const nextArticle = activeArticle.next('.carousel-item');
+    // التحكم في السلايدر باستخدام الأزرار
+    $('.carousel-control-prev').click(function() {
+        // العنصر الحالي
+        var currentSlide = $('.carousel-inner .carousel-item.active');
 
-        if (nextArticle.length === 0) {
-            $('.carousel-item').first().addClass('active');
+        // التحقق مما إذا كان العنصر الحالي هو الأول
+        if (currentSlide.is(':first-child')) {
+            // إذا كان العنصر الحالي هو الأول، قم بإعادة تعيين السلايدر إلى العنصر الأخير
+            $('.carousel-inner .carousel-item:last').addClass('active');
         } else {
-            activeArticle.animate({ left: '-100%' }, 1000, function() {
-                activeArticle.removeClass('active');
-                nextArticle.addClass('active').css('left', '100%').animate({ left: 0 }, 1000);
-            });
+            // إلا إذا لم يكن العنصر الحالي هو الأول، قم بالانتقال إلى العنصر السابق
+            currentSlide.prev().addClass('active');
         }
-    }
-
-    function movePrev() {
-        const activeArticle = $('.carousel-inner .carousel-item.active');
-        const prevArticle = activeArticle.prev('.carousel-item');
-
-        if (prevArticle.length === 0) {
-            $('.carousel-item').last().addClass('active');
-        } else {
-            activeArticle.animate({ left: '100%' }, 500, function() {
-                activeArticle.removeClass('active');
-                prevArticle.addClass('active').css('left', '-100%').animate({ left: 0 }, 500);
-            });
-        }
-    }
-
-    function autoMoveNext() {
-        moveNext();
-        setTimeout(autoMoveNext, intervalDuration);
-    }
-
-    function autoMovePrev() {
-        movePrev();
-        setTimeout(autoMovePrev, intervalDuration);
-    }
-
-    $('.carousel-control-next').click(function () {
-        moveNext();
+        // قم بإزالة الفئة "active" من العنصر الحالي
+        currentSlide.removeClass('active');
     });
 
-    $('.carousel-control-prev').click(function () {
-        movePrev();
+    $('.carousel-control-next').click(function() {
+        // العنصر الحالي
+        var currentSlide = $('.carousel-inner .carousel-item.active');
+
+        // التحقق مما إذا كان العنصر الحالي هو الأخير
+        if (currentSlide.is(':last-child')) {
+            // إذا كان العنصر الحالي هو الأخير، قم بإعادة تعيين السلايدر إلى العنصر الأول
+            $('.carousel-inner .carousel-item:first').addClass('active');
+        } else {
+            // إلا إذا لم يكن العنصر الحالي هو الأخير، قم بالانتقال إلى العنصر التالي
+            currentSlide.next().addClass('active');
+        }
+        // قم بإزالة الفئة "active" من العنصر الحالي
+        currentSlide.removeClass('active');
     });
 
-    autoMoveNext();
-    autoMovePrev();
+    // تغيير السلايد تلقائياً كل 30 ثانية
+    setInterval(function() {
+        var currentSlide = $('.carousel-inner .carousel-item.active');
+        var nextSlide = currentSlide.next();
+
+        // التحقق مما إذا كان العنصر الحالي هو الأخير
+        if (currentSlide.is(':last-child')) {
+            // إذا كان العنصر الحالي هو الأخير، قم بإعادة تعيين السلايدر إلى العنصر الأول
+            nextSlide = $('.carousel-inner .carousel-item:first');
+        }
+
+        currentSlide.removeClass('active');
+        nextSlide.addClass('active');
+    }, 30000); // 30 ثانية
 });
 
 
