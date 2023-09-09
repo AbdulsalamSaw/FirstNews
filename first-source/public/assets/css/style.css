@@ -643,3 +643,193 @@ h6 {
     transform: translateY(-200%);
   }
 }
+
+.categories-section .category-item {
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0px 2px 15px rgba(63, 187, 192, 0.1);
+}
+
+.categories-section .category-item .category-img {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+}
+
+.categories-section .category-item .category-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.categories-section .category-item .social {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 40px;
+    opacity: 0;
+    transition: ease-in-out 0.3s;
+    background: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.categories-section .category-item .social a {
+    transition: color 0.3s;
+    color: #555555;
+    margin: 0 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.categories-section .category-item .social a i {
+    line-height: 0;
+}
+
+.categories-section .category-item .social a:hover {
+    color: #3fbbc0;
+}
+
+.categories-section .category-item .social i {
+    font-size: 18px;
+    margin: 0 2px;
+}
+
+.categories-section .category-item .category-info {
+    padding: 25px 15px;
+}
+
+.categories-section .category-item .category-info h4 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #555555;
+}
+
+.categories-section .category-item .category-info span {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: #aaaaaa;
+}
+
+.categories-section .category-item .category-info p {
+    font-style: italic;
+    font-size: 14px;
+    line-height: 26px;
+    color: #777777;
+}
+
+.categories-section .category-item:hover .social {
+    opacity: 1;
+}
+.section-title {
+    text-align: center;
+}
+
+.section-title h2 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 28px;
+    color: #555555;
+}
+
+.section-title p {
+    font-size: 16px;
+    color: #777777;
+}
+
+
+
+
+.new-section .new-item {
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0px 2px 15px rgba(63, 187, 192, 0.1);
+}
+
+.new-section .new-item .new-img {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+}
+
+.new-section .new-item .new-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.new-section .new-item .social {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 40px;
+    opacity: 0;
+    transition: ease-in-out 0.3s;
+    background: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.new-section .new-item .social a {
+    transition: color 0.3s;
+    color: #555555;
+    margin: 0 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.new-section .new-item .social a i {
+    line-height: 0;
+}
+
+.new-section .new-item .social a:hover {
+    color: #3fbbc0;
+}
+
+.new-section .new-item .social i {
+    font-size: 18px;
+    margin: 0 2px;
+}
+
+.new-section .new-item .new-info {
+    padding: 25px 15px;
+}
+
+.new-section .new-item .new-info h4 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #555555;
+}
+
+.new-section .new-item .new-info span {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: #aaaaaa;
+}
+
+.new-section .new-item .new-info p {
+    font-style: italic;
+    font-size: 14px;
+    line-height: 26px;
+    color: #777777;
+}
+
+.new-section .new-item:hover .social {
+    opacity: 1;
+}

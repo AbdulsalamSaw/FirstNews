@@ -17,10 +17,10 @@ return new class extends Migration
        // $table->string('image')->nullable();
        // });
 
-       Schema::table('articles', function (Blueprint $table) {
-        $table->unsignedBigInteger('category_id');
-        $table->foreign('category_id')->references('id')->on('categories');
-    });
+     //  Schema::table('articles', function (Blueprint $table) {
+      //  $table->unsignedBigInteger('category_id');
+      //  $table->foreign('category_id')->references('id')->on('categories');
+   // });
 
     }
 

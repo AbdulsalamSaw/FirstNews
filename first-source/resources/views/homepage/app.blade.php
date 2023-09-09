@@ -114,13 +114,65 @@
             </a>
         </section>
     </section>
+    <br>
+    <br>
 
-
-    <div id="app">
-        <main class="py-4">
-            @yield('content')
-        </main>
+    <div class="container">
+    <section id="categories" class="categories-section section-bg">
+          <div class="section-title">
+            <h2>{{ __('categories.categories') }}</h2>
+            <p>الاقسام المتوفر داخل الموقع بحيث يتم عرض جميع الاقسام هنا ويمكنك الضغط عليه لعرض اخر الاخبار الموجودة داخل القسم </p>
+        </div>
+        <div class="row">
+          @foreach ($categories as $category)
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="category-item" data-aos-delay="100">
+              <div class="category-img">
+                <img src="{{$category->image}}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="category-info">
+                <h4>{{$category->name}}</h4>
+                <span>{{$category->description}}</span>
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+      </section>
     </div>
+
+    <div class="container">
+        <section id="new" class="new-section section-bg">
+            <div class="new-title">
+                <h2>آخر الموضوعات التي تمت إضافتها</h2>
+                <p></p>
+            </div>
+            <div class="row">
+                @foreach ($latestArticles as $article)
+                <div class="col-lg-2 col-md-6 d-flex align-items-stretch">
+                    <div class="new-item" data-aos-delay="100">
+                        <div class="new-img">
+                            <img src="{{$article->image}}" class="img-fluid" alt="">
+                        </div>
+                        <div class="new-info">
+                            <h4>
+                                 <a href="{{ route('singleNew.show', $article->id) }}">{{ $article->title }}</a>
+                            </h4>
+                            <span>{{$article->description}}</span>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </section>
+    </div>
+
 
  <!-- ======= Footer ======= -->
  <footer id="footer">
