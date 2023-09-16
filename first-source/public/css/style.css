@@ -326,6 +326,11 @@
     border: 1px solid #000000;
     border-radius: 4px;
 }
+@media (max-width: 991px) {
+    .navbar-collapse >  ul {
+        display: block;
+    }
+  }
 
 .sidebar .sidebar-widget .tags a:hover {
     color: #ffffff;

@@ -13,14 +13,15 @@ class Language
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next) 
-    { 
-        if (Session()->has('applocale') and array_key_exists(Session()->get('applocale'), config('languages'))) 
-        { 
+    public function handle(Request $request, Closure $next)
+    {
+        if (Session()->has('applocale') and array_key_exists(Session()->get('applocale'), config('languages')))
+        {
             App::setlocale(Session()->get('applocale'));
-         } 
+         }
          else {
-             App::setlocale(config('app.fallback_locale')); 
-            } return $next($request); 
+            App::setLocale('ar');
+
+            } return $next($request);
     }
 }
