@@ -17,9 +17,10 @@ class RecordVisitor
     public function handle($request, Closure $next)
     {
         $ipAddress = $request->ip();
-
+        $userAgent = $request->header('User-Agent');
         DB::table('visitors')->insert([
             'ip_address' => $ipAddress,
+            'user_agent' => $userAgent, 
             'visited_at' => now(),
         ]);
 

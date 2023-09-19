@@ -6,7 +6,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>المصدر الاول'</title>
+    <title>المصدر الاول</title>
 
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">

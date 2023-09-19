@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('visitors', function (Blueprint $table) {
             $table->id();
             $table->string('ip_address');
+            $table->string('user_agent');
             $table->timestamp('visited_at')->nullable();
             $table->timestamps();
         });
