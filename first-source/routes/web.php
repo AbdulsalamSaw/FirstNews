@@ -21,6 +21,7 @@ Route::group(['middleware' => 'checkrole:admin'], function () {
     Route::resource('categories', CategoryController::class);
 
 
+
 });
 
 Route::get('/not-found',[NotFoundController::class,'index'])->name('not-found');

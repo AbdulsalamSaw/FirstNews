@@ -52,9 +52,59 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class = "col-lg-6 col-md-6">
+        <div class="card-body">
+            <h4>Chart User</h4>
+            {!!$chart_user->renderHtml()!!}
+
+        </div>
+    </div>
+    <div class = "col-lg-6 col-md-6">
+        <div class="card-body">
+            <h4>Chart Visitor</h4>
+            {!!$chart_visitor->renderHtml()!!}
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class = "col-lg-6 col-md-6">
+        <div class="card-body">
+            <h4>Chart Category</h4>
+            {!!$chart_category->renderHtml()!!}
+
+        </div>
+    </div>
+    <div class = "col-lg-6 col-md-6">
+        <div class="card-body">
+            <h4>Chart Article</h4>
+            {!!$chart_article->renderHtml()!!}
+        </div>
+    </div>
+</div>
 
 
-</table>
+{!!$chart_user->renderChartJsLibrary()!!}
+
+{!!$chart_user->renderJs()!!}
+
+{!!$chart_visitor->renderChartJsLibrary()!!}
+
+{!!$chart_visitor->renderJs()!!}
+
+
+{!!$chart_category->renderChartJsLibrary()!!}
+
+{!!$chart_category->renderJs()!!}
+
+
+
+{!!$chart_article->renderChartJsLibrary()!!}
+
+{!!$chart_article->renderJs()!!}
+
+
 
 
 
