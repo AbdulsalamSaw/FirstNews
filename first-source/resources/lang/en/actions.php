@@ -4,11 +4,13 @@ return [
     'delete' => 'Delete',
     'cancel' => 'Cancel',
     'edit' => 'Edit',
-    'save' => 'Save', 
-    'update' => 'Update', 
+    'save' => 'Save',
+    'update' => 'Update',
     'submit' => 'Submit',
     'actions' => 'Actions',
-    'search' => 'Search', 
+    'search' => 'Search',
+    'show' => 'Show',
+
 
 ];
 

@@ -23,7 +23,6 @@
             <div class="card">
                 <div class="card-header">Related Articles</div>
                 <div class="card-body">
-                    <!-- عرض المقالات ذات الصلة هنا -->
                 </div>
             </div>
         </div>
@@ -34,7 +33,7 @@
 <script>
     ClassicEditor
         .create(document.querySelector('#articleContent'), {
-            readOnly: true, 
+            readOnly: true,
         })
         .catch(error => {
             console.error(error);
