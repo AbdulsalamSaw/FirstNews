@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\Cpanel\UserController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\Admin\Cpanel\CategoryController;
 use App\Http\Controllers\Admin\Cpanel\ArticleController;
+use App\Http\Controllers\SearchController;
 
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => '\App\Http\Controllers\LanguagesController@switchLang']);
 
@@ -35,3 +36,4 @@ Route::get('/',[IndexController::class,'viewPage'])->name('home');
 
 Route::get('s/{id}',[IndexController::class,'viewSingleNew'])->name('singleNew.show');
 Route::get('c/{id}',[IndexController::class,'viewCategory'])->name('singleCategory.show');
+Route::get('/search', [SearchController::class, 'search'])->name('search');

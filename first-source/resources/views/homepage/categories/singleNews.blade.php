@@ -10,8 +10,14 @@
         <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="{{ url('/css/style.css') }}" rel="stylesheet">
-    <link href={{ asset('assets/css/style.css') }} rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/search.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/category.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/news.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/navbar.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
     <header id="header" >
