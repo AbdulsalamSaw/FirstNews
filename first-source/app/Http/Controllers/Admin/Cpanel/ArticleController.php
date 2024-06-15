@@ -23,37 +23,37 @@ class ArticleController extends Controller
     }
 
 
-        public function store(Request $request)
-        {
-            try {
-                $article = new Article([
-                    'title' => $request->input('title'),
-                    'user_id' => auth()->user()->id,
-                ]);
-                $article->category_id = $request->input('categorie_id');
-
-                $article->content = $request->input('content');
-                // Upload Image
-                if ($request->hasFile('image')) {
-                    $imagePath = $request->file('image')->store('articles', 'public');
-                    $article->image = $imagePath;
-                }
-
-                // Upload Video
-                if ($request->hasFile('video')) {
-                    $videoPath = $request->file('video')->store('videos', 'public');
-                    $article->video = $videoPath;
-                }
-
-                $article->save();
-
-                return redirect()->route('articles.index')->with('success', 'Article created successfully.');
-            } catch (\Exception $e) {
-                Log::error($e);
-                return redirect()->back()->with('error', 'An error occurred while creating the article.');
+    public function store(Request $request)
+    {
+        try {
+            $article = new Article([
+                'title' => $request->input('title'),
+                'user_id' => auth()->user()->id,
+            ]);
+            $article->category_id = $request->input('categorie_id');
+            $article->content = $request->input('content');
+    
+            // Upload Image
+            if ($request->hasFile('image')) {
+                $imagePath = $request->file('image')->store('articles', 'public');
+                $article->image = url('storage/' . $imagePath);
             }
+    
+            // Upload Video
+            if ($request->hasFile('video')) {
+                $videoPath = $request->file('video')->store('videos', 'public');
+                $article->video = url('storage/' . $videoPath);
+            }
+    
+            $article->save();
+    
+            return redirect()->route('articles.index')->with('success', 'Article created successfully.');
+        } catch (\Exception $e) {
+            Log::error($e);
+            return redirect()->back()->with('error', 'An error occurred while creating the article.');
         }
-
+    }
+    
 
     public function show($id)
     {

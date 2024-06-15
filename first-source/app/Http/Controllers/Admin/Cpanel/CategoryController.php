@@ -35,21 +35,22 @@ class CategoryController extends Controller
                 'name' => $request->input('name'),
                 'description' => $request->input('description')
             ]);
-
+    
+            // Upload Image
             if ($request->hasFile('image')) {
                 $imagePath = $request->file('image')->store('categories', 'public');
-                $category->image = $imagePath;
+                $category->image = url('storage/' . $imagePath);
             }
-
+    
             $category->save();
-
+    
             return redirect()->route('categories.index')->with('success', 'Category created successfully.');
         } catch (\Exception $e) {
             Log::error($e);
             return redirect()->back()->with('error', 'An error occurred while creating the category.');
         }
     }
-
+    
 
     public function show($id)
     {
@@ -64,29 +65,33 @@ class CategoryController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        try {
-            $category = Category::findOrFail($id);
-            $category->update([
-                'name' => $request->input('name'),
-                'description' => $request->input('description')
-            ]);
-    
-            if ($request->hasFile('image')) {
-                if ($category->image) {
-                    Storage::disk('public')->delete($category->image);
-                }
-                $imagePath = $request->file('image')->store('categories', 'public');
-                $category->image = $imagePath;
-                $category->save();
+{
+    try {
+        $category = Category::findOrFail($id);
+        
+        $category->update([
+            'name' => $request->input('name'),
+            'description' => $request->input('description')
+        ]);
+
+        if ($request->hasFile('image')) {
+            if ($category->image) {
+                Storage::disk('public')->delete($category->image);
             }
-    
-            return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
-        } catch (\Exception $e) {
-            Log::error($e);
-            return redirect()->back()->with('error', 'An error occurred while updating the category.');
+
+            $imagePath = $request->file('image')->store('categories', 'public');
+            $category->image = url('storage/' . $imagePath);
         }
+
+        $category->save();
+
+        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
+    } catch (\Exception $e) {
+        Log::error($e);
+        return redirect()->back()->with('error', 'An error occurred while updating the category.');
     }
+}
+
     
 
     public function destroy($id)
